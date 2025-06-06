@@ -215,6 +215,8 @@ sync-app:
       else
         echo "Git LFS not detected. Skipping LFS steps."
       fi
+    # Remove files places in .publishignore locally and from history before pushing
+    - publish-repo-cleanup
     # Push current branch to github
     - git push public $CI_COMMIT_REF_NAME
     # Push the latest tag we can find
