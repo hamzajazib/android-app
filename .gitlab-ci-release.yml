@@ -87,8 +87,7 @@ build amazon release:
     - android-xlarge
   script:
     - >
-      ./gradlew openvpn:assembleRelease \
-                assembleProductionVanillaAmazonRelease
+      ./gradlew assembleProductionVanillaAmazonRelease
   artifacts:
     expire_in: 3 week
     paths:
@@ -100,10 +99,7 @@ build google play bundle:
   tags:
     - android-xlarge
   script:
-    # Build openvpn first, otherwise ovpnassets are not copied to app's assets.
-    - >
-      ./gradlew :openvpn:assembleRelease \
-                :app:bundleProductionGooglePlayStoreRelease
+    - ./gradlew :app:bundleProductionGooglePlayStoreRelease
   artifacts:
     expire_in: 1 week
     paths:
@@ -115,7 +111,7 @@ build vanilla release:
   tags:
     - android-xlarge
   script:
-    - ./gradlew openvpn:assembleRelease assembleProductionVanillaDirectRelease
+    - ./gradlew assembleProductionVanillaDirectRelease
   artifacts:
     expire_in: 3 week
     paths:
@@ -137,8 +133,7 @@ build payments black google dev:
         exit 1
       fi
     - >
-      ./gradlew openvpn:assembleRelease \
-                assembleBlackGoogleDevRelease \
+      ./gradlew assembleBlackGoogleDevRelease \
                 bundleBlackGoogleDevRelease
   variables:
     TEST_ENV_DOMAIN: "payments.proton.black"
