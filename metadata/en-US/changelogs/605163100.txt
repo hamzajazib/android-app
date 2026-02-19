@@ -1,0 +1,2 @@
+What's new
+- Fixed an issue on Android TV where the keyboard couldn't be dismissed from the Custom DNS input on some devices. - Improved TV startup auto-connect reliability, though system restrictions may limit it.
